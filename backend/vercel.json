@@ -1,6 +1,6 @@
 {
   "functions": {
-    "src/index.ts": {
+    "api/index.ts": {
       "runtime": "nodejs@22.7.0"
     }
   }
