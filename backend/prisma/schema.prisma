@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String           @id @default(auto()) @map("_id") @db.ObjectId
+  email             String           @unique
+  name              String?
+  birthday          DateTime?
+  referralSourceId  String?          
+  referralSource    ReferralSource?  @relation("ReferralSourceUsers", fields: [referralSourceId], references: [id])
+  userEvents        UserEvent[]
+}
+
+model ReferralSource {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  sourceName  String     @unique
+  users       User[]     @relation("ReferralSourceUsers") 
+}
+
+model Organizer {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  name        String      @unique
+  isInternal  Boolean     @default(false)
+  events      Event[]     @relation("OrganizerEvents")
+}
+
+model Event {
+  id              String       @id @default(auto()) @map("_id") @db.ObjectId
+  title           String
+  description     String
+  eventDate       DateTime
+  organizerId     String
+  organizer       Organizer    @relation("OrganizerEvents", fields: [organizerId], references: [id])
+  userEvents      UserEvent[]
+  ticketmasterId  String?
+}
+
+model UserEvent {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId  String
+  eventId String
+  createdAt DateTime @default(now())
+
+  user    User   @relation(fields: [userId], references: [id])
+  event   Event  @relation(fields: [eventId], references: [id])
+
+  @@index([userId], name: "userId_idx")
+  @@index([eventId], name: "eventId_idx")
+}
