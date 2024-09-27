@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "build": "prisma db push && prisma generate",
     "dev": "IS_DEV_MODE=true ts-node-dev api/index.ts",
     "fetch-events": "ts-node prisma/fetch-events.ts",
-    "init-db": "npx prisma db push && npx prisma generate && ts-node prisma/seed.ts"
+    "init-db": "npm run build && ts-node prisma/seed.ts"
   },
   "dependencies": {
     "@faker-js/faker": "^9.0.2",
