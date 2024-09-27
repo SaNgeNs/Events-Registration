@@ -18,7 +18,7 @@ const formSchema = z.object({
   name: z.string().min(3, {
     message: "name must be at least 3 characters.",
   }),
-  email: z.string().email("email is required."),
+  email: z.string().email("Email is required."),
   birthday: z.date({
     required_error: "A date of birth is required.",
   }),
@@ -153,7 +153,7 @@ export default function EventRegistration() {
             name="referralSourceId"
             render={({ field }) => (
               <FormItem className="space-y-3">
-                <FormLabel>Date of birth</FormLabel>
+                <FormLabel>Where did you hear about this event?</FormLabel>
 
                 <FormControl>
                   <RadioGroup
