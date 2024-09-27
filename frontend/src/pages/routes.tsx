@@ -21,14 +21,6 @@ export const routeLinks = {
   events: '/events/',
 };
 
-/**
- * appRoutes returns an array of routes for the main router.
- * It contains the main routes for the application, including the home page,
- * contacts page, build page, inventory page, dashboard page, and a catch-all
- * for unknown routes.
- *
- * @returns {Array} An array of routes for the main router.
- */
 function appRoutes() {
   const routes = [
     {
@@ -44,7 +36,6 @@ function appRoutes() {
             { index: true, element: <EventList />, name: 'Event List' },
             { path: ':id/', element: <EventDetail />, name: 'Event Detail' },
             { path: ':id/registration/', element: <EventRegistration />, name: 'Event Registration' },
-            // { path: 'create/', element: <Contact />, name: 'Contact' },
           ],
         },
         { path: '*', element: <NotFound />, name: '404' },
