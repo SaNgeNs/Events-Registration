@@ -14,6 +14,7 @@
 3) In the backend folder create an .env file with
 
 `DATABASE_URL=`***`MONGO_API_KEY`*** - [MongoDB Cloud Services](https://www.mongodb.com/products/platform/cloud)
+
 `TICKETMASTER_API_KEY=`***`API_KEY`*** - [Ticketmaster](https://developer.ticketmaster.com/)
 
 4) In the backedn folder, run the command `npm run init-db` to create the database and fill it with initial data
