@@ -105,21 +105,21 @@ export default function EventDetail() {
         </>
       )}
 
+      <h2 className="text-2xl font-bold mb-2">Participants:</h2>
+
+      <Input
+        className="mb-5"
+        placeholder="Enter name or email"
+        onChange={onSearch}
+        value={inputValue}
+      />
+
+      <UserStatistics />
+
       {queryEvent.isLoading || queryUsers.isLoading && <Loader className="flex mt-5 mx-auto" />}
 
       {users.length > 0 && (
         <>
-          <h2 className="text-2xl font-bold">Participants:</h2>
-
-          <Input
-            className="mb-5"
-            placeholder="Enter name or email"
-            onChange={onSearch}
-            value={inputValue}
-          />
-
-          <UserStatistics />
-
           <VirtuosoGrid
             useWindowScroll
             data={users}
