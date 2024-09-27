@@ -109,7 +109,7 @@ export default function EventList() {
     <Container className="px-5 my-5">
       <h1 className="text-4xl mb-5 font-bold">Events</h1>
 
-      <div className="mb-5 flex flex-row gap-5">
+      <div className="mb-5 flex flex-row gap-5 flex-wrap">
         <div className="flex flex-row items-center">
           <p className="text-lg font-bold mr-3">Direction:</p>
 
