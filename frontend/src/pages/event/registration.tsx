@@ -13,6 +13,7 @@ import { EventDetailItem, ReferralSource, UserEvent, UserEventRegistrate } from 
 import { DatePicker } from "@/components/ui/datepicker";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { routeLinks } from "../routes";
+import Loader from "@/components/ui/loader";
 
 const formSchema = z.object({
   name: z.string().min(3, {
@@ -87,10 +88,14 @@ export default function EventRegistration() {
         Back
       </Button>
 
-      <h1 className="text-2xl mb-5">
-        <span>Registration to</span>
-        <span className="ml-1.5 font-bold">{`"${queryEvent.data?.data.title}"`}</span>
-      </h1>
+      {queryEvent.isLoading && <Loader className="flex mx-auto mt-5" />}
+
+      {queryEvent.data && (
+        <h1 className="text-2xl mb-5">
+          <span>Registration to</span>
+          <span className="ml-1.5 font-bold">{`"${queryEvent.data?.data.title || ''}"`}</span>
+        </h1>
+      )}
 
       <Form {...form}>
         <form
