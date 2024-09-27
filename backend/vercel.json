@@ -1,5 +1,4 @@
 {
-  "functions": {
-    "api/index.ts": {}
-  }
+	"version": 2,
+	"rewrites": [{ "source": "/(.*)", "destination": "/api" }]
 }
