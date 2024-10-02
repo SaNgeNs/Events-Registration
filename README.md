@@ -1,7 +1,5 @@
 # Events-Registration
 
-### `Everything is implemented except for sorting events by organizer`
-
 ### [Site](https://events-registration-blush.vercel.app/events/)
 
 ### How to start a project locally:
